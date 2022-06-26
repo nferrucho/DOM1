@@ -15,8 +15,13 @@ const createTask = (evento) =>{
     const input = document.querySelector("[data-form-input]");
     // atrapar el input
     const value = input.value;
+
+    const list = document.querySelector("[data-list]");
     
-    task = document.querySelector("[data-task]");
+    const task = document.createElement("li");
+    
+    //adicionando la clase que forma el entorno del item
+    task.classList.add('card');
     input.value = "";
     
     //backticks : pegamos el <div> de lo nuevo a tratar
@@ -29,6 +34,7 @@ const createTask = (evento) =>{
     //ajustando el nuevo div al html
     task.innerHTML = content;
 
+    list.appendChild(task);
     console.log(task);
 
 }
