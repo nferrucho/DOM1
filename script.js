@@ -1,8 +1,11 @@
 // IIFE : para encapsular las funciones creadas
 // y que no se vean en consola
 
+import checkComplete from "./components/checkComplete.js";
+import deleteIcon from "./components/deleteIcon.js";
+
 ( () => {
-const btn = document.querySelector('[data-form-btn]');
+    const btn = document.querySelector('[data-form-btn]');
 
 
 //pasandolo a funcion flecha
@@ -53,40 +56,7 @@ const createTask = (evento) =>{
 
 btn.addEventListener("click", createTask);
 
-//funcion para tomar las clases del <div> 
-const checkComplete = () => {
-    const i = document.createElement('i'); 
-    i.classList.add('far','fa-check-square', 'icon');
-    i.addEventListener('click', completeTask);
-    return i;
-};
 
-const completeTask = (event) =>{
-    
-    //agregando una nueva clase
-    const element = event.target;
-    //element.classList.add('fas');
-    //element.classList.remove(far);
-
-    //otra forma es con toggle
-    element.classList.toggle('fas');
-    element.classList.toggle('completeIcon');
-    element.classList.toggle('far');
-};
-const deleteIcon = () =>{
-    //agregando una nueva clase
-    const i = document.createElement('i');
-    i.classList.add('fas', 'fa-trash-alt', 'trashIcon', 'icon');
-    i.addEventListener("click",deleteTask);
-    return (i);
-};
-
-const deleteTask = (event) =>{
-    console.log("eliminar tarea");
-    const parent = event.target.parentElement;
-    parent.remove();
-};    
-    
 
 
 })();
